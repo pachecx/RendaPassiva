@@ -28,57 +28,69 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-gray-900 via-gray-900 to-black pt-24 pb-12 flex items-center">
-
-      {/* BACKGROUND PREMIUM EFFECTS */}
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-black pt-24 pb-12 flex items-center">
+      {/* BACKGROUND EFFECTS (FINTECH STYLE) */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-40 right-10 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+
+        {/* subtle grid overlay (efeito fintech premium) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.05)_1px,transparent_0)] [background-size:24px_24px] opacity-20" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="grid md:grid-cols-2 gap-12 items-center"
         >
-
-          {/* LEFT SIDE - COPY (CONVERSÃO) */}
+          {/* LEFT SIDE - COPY */}
           <div className="space-y-6">
-
             <motion.h1
               variants={itemVariants}
               className="text-5xl sm:text-6xl font-bold leading-tight bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent"
             >
-              RENDA PASSIVA VITALÍCIA
+              Construa uma carteira de renda passiva e alcance independência
+              financeira
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-gray-300 text-lg leading-relaxed max-w-xl"
             >
-              Aprenda a construir patrimônio, gerar renda passiva e desenvolver
-              uma estratégia financeira sólida com investimentos inteligentes.
+              Um método estruturado para transformar sua renda ativa em
+              patrimônio gerador de fluxo constante através de investimentos
+              inteligentes.
             </motion.p>
+
+            {/* BULLETS DE AUTORIDADE */}
+            <motion.div
+              variants={itemVariants}
+              className="space-y-2 text-gray-300 text-sm"
+            >
+              <p>• Estratégias de dividendos e FIIs</p>
+              <p>• Construção de carteira de longo prazo</p>
+              <p>• Gestão de risco e proteção patrimonial</p>
+              <p>• Método progressivo do iniciante ao avançado</p>
+            </motion.div>
 
             {/* CTA */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-8"
+              className="flex flex-col sm:flex-row gap-4 pt-6"
             >
               <Button size="lg" variant="primary">
-                Quero Começar Agora
+                Quero Construir Minha Renda Passiva
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
               <Button size="lg" variant="outline">
-                Ver Conteúdo do Curso
+                Ver Como Funciona o Método
               </Button>
             </motion.div>
 
-            {/* TRUST SOCIAL PROOF */}
+            {/* TRUST / SOCIAL PROOF MELHORADO */}
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-4 pt-8"
@@ -95,16 +107,15 @@ export const HeroSection: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-white font-semibold">+5.000 alunos</p>
+                <p className="text-white font-semibold">+5.000 investidores</p>
                 <p className="text-gray-400 text-sm">
-                  construindo renda passiva
+                  em construção de patrimônio
                 </p>
               </div>
             </motion.div>
-
           </div>
 
-          {/* RIGHT SIDE - FINTECH DASHBOARD (WOW EFFECT) */}
+          {/* RIGHT SIDE - DASHBOARD */}
           <motion.div
             variants={itemVariants}
             className="relative hidden md:block"
@@ -113,7 +124,6 @@ export const HeroSection: React.FC = () => {
           >
             <AnimatedDashboard />
           </motion.div>
-
         </motion.div>
       </div>
     </section>

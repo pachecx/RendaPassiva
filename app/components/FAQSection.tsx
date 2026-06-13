@@ -10,122 +10,110 @@ export const FAQSection: React.FC = () => {
   const { ref, inView } = useScrollAnimation();
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <section id="faq" className="relative py-24 bg-black overflow-hidden">
-      {/* Background Elements */}
+      {/* BACKGROUND FINTECH */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-green-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* HEADER */}
         <motion.div
           ref={ref}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-14"
         >
-          {/* Header */}
-          <div className="text-center mb-16">
-            <motion.div className="flex items-center justify-center gap-2 mb-4">
-              <HelpCircle className="w-8 h-8 text-indigo-400" />
-            </motion.div>
-            <motion.h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Perguntas Frequentes
-            </motion.h2>
-            <motion.p className="text-gray-400 text-lg">
-              Respostas para as dúvidas mais comuns
-            </motion.p>
+          <div className="flex items-center justify-center gap-2 mb-4 text-green-400">
+            <HelpCircle className="w-6 h-6" />
+            <span className="text-sm uppercase tracking-widest">
+              Central de Ajuda
+            </span>
           </div>
 
-          {/* FAQ Accordion */}
-          <motion.div variants={containerVariants} className="space-y-4">
-            {FAQ.map((faq, index) => (
-              <motion.div key={faq.id} variants={itemVariants}>
-                <motion.button
-                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                  className="w-full text-left"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                >
-                  <div
-                    className={`w-full bg-gradient-to-r transition-all duration-300 rounded-xl p-6 border cursor-pointer ${
-                      openFAQ === index
-                        ? "from-indigo-600/30 to-purple-600/30 border-indigo-600/50 bg-indigo-600/10"
-                        : "from-gray-800/50 to-gray-900/50 border-gray-700 hover:border-gray-600"
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Perguntas Frequentes
+          </h2>
+
+          <p className="text-gray-400 text-lg">
+            Tudo o que você precisa saber antes de começar sua jornada
+            financeira
+          </p>
+        </motion.div>
+
+        {/* ACCORDION */}
+        <div className="space-y-3">
+          {FAQ.map((faq, index) => (
+            <div key={faq.id}>
+              <motion.button
+                onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                whileHover={{ scale: 1.01 }}
+                className={`w-full text-left rounded-xl border transition-all duration-300 ${
+                  openFAQ === index
+                    ? "border-green-500/40 bg-white/5"
+                    : "border-white/10 bg-white/[0.02] hover:border-white/20"
+                }`}
+              >
+                <div className="p-6 flex items-center justify-between">
+                  <h3
+                    className={`font-medium text-base transition-colors ${
+                      openFAQ === index ? "text-white" : "text-gray-300"
                     }`}
                   >
-                    <div className="flex items-center justify-between">
-                      <h3
-                        className={`text-lg font-bold transition-colors ${
-                          openFAQ === index ? "text-indigo-300" : "text-white"
-                        }`}
-                      >
-                        {faq.question}
-                      </h3>
-                      <motion.div
-                        animate={{ rotate: openFAQ === index ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className={
-                          openFAQ === index
-                            ? "text-indigo-400"
-                            : "text-gray-400"
-                        }
-                      >
-                        <ChevronDown className="w-6 h-6" />
-                      </motion.div>
+                    {faq.question}
+                  </h3>
+
+                  <motion.div
+                    animate={{ rotate: openFAQ === index ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className={
+                      openFAQ === index ? "text-green-400" : "text-gray-500"
+                    }
+                  >
+                    <ChevronDown className="w-5 h-5" />
+                  </motion.div>
+                </div>
+              </motion.button>
+
+              {/* ANSWER */}
+              <AnimatePresence>
+                {openFAQ === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 pb-6 pt-2 text-gray-400 text-sm leading-relaxed border-l border-green-500/20 ml-4">
+                      {faq.answer}
                     </div>
-                  </div>
-                </motion.button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
 
-                {/* Expandable Content */}
-                <AnimatePresence>
-                  {openFAQ === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="bg-gray-900/50 border border-t-0 border-indigo-600/30 rounded-b-xl p-6 text-gray-300 leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Still Have Questions */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center p-8 bg-gradient-to-r from-indigo-600/10 to-purple-600/10 border border-indigo-600/30 rounded-xl"
-          >
-            <p className="text-gray-300 mb-4">Ainda tem dúvidas?</p>
-            <p className="text-indigo-300 font-semibold">
-              Envie um email para contato@rendapassivavitalicia.com
+        {/* TRUST BLOCK (IMPORTANTE PARA CONVERSÃO) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <div className="inline-block bg-white/5 border border-white/10 rounded-xl px-6 py-5 max-w-xl">
+            <p className="text-gray-300 text-sm">
+              Ainda com dúvidas? Nosso suporte está disponível para orientar sua
+              decisão de forma transparente e educativa.
             </p>
-          </motion.div>
+
+            <p className="text-green-400 mt-2 text-sm font-medium">
+              contato@rendapassivavitalicia.com
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

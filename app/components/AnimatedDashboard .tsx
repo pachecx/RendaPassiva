@@ -7,102 +7,77 @@ import { motion } from "framer-motion";
 export const AnimatedDashboard = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.98, filter: "blur(10px)" }}
-      animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y: 20, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8 }}
-      className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/90 rounded-2xl border border-white/10 p-8 shadow-2xl backdrop-blur-xl overflow-hidden"
+      className="relative bg-white/[0.03] border border-white/10 rounded-2xl p-6 backdrop-blur-xl overflow-hidden"
     >
-      {/* Glow */}
+      {/* subtle glow (mais discreto, estilo banco) */}
       <div className="absolute inset-0 bg-green-500/5 blur-3xl" />
 
-      {/* GRID STATS */}
-      <div className="grid grid-cols-2 gap-4 relative z-10">
+      <div className="relative z-10">
+        {/* KPI PRINCIPAL */}
+        <div className="mb-6">
+          <p className="text-xs text-gray-400">Patrimônio estimado</p>
 
-        {/* Patrimônio */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-          <p className="text-xs text-gray-400">Patrimônio</p>
+          <h3 className="text-3xl font-bold text-white">
+            R$ <CountUp end={842350} duration={2.5} separator="." />
+          </h3>
 
-          <p className="text-xl font-bold text-white">
-            R${" "}
-            <CountUp
-              end={842350}
-              duration={2.5}
-              separator="."
-            />
+          <p className="text-green-400 text-sm mt-1">
+            +12,4% crescimento anual médio
+          </p>
+        </div>
+
+        {/* MINI KPIs (menos, mais impacto) */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+            <p className="text-xs text-gray-400">Renda mensal</p>
+            <p className="text-lg font-semibold text-white">
+              R$ <CountUp end={4280} duration={2.5} />
+            </p>
+            <p className="text-green-400 text-xs">Dividendos + FIIs</p>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+            <p className="text-xs text-gray-400">Fluxo anual</p>
+            <p className="text-lg font-semibold text-white">
+              R$ <CountUp end={51360} duration={2.5} />
+            </p>
+            <p className="text-gray-400 text-xs">Reinvestido automaticamente</p>
+          </div>
+        </div>
+
+        {/* CHART (mais financeiro e menos “barras aleatórias”) */}
+        <div>
+          <p className="text-xs text-gray-400 mb-3">
+            Evolução patrimonial projetada
           </p>
 
-          <p className="text-green-400 text-xs">+12,4% ano</p>
+          <div className="h-24 flex items-end gap-2">
+            {[20, 28, 35, 45, 55, 68, 85].map((h, i) => (
+              <motion.div
+                key={i}
+                initial={{ height: 0 }}
+                animate={{ height: `${h}%` }}
+                transition={{ duration: 0.8, delay: i * 0.08 }}
+                className="w-2 rounded-full bg-gradient-to-t from-green-500/60 to-green-300"
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Renda mensal */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-          <p className="text-xs text-gray-400">Renda Mensal</p>
-
-          <p className="text-xl font-bold text-white">
-            R${" "}
-            <CountUp end={4280} duration={2.5} separator="." />
+        {/* INSIGHT (muito importante para percepção premium) */}
+        <div className="mt-6 flex items-center justify-between">
+          <p className="text-xs text-gray-500 max-w-[70%]">
+            Estratégia baseada em reinvestimento de dividendos e crescimento de
+            longo prazo.
           </p>
 
-          <p className="text-green-400 text-xs">Dividendos</p>
+          <span className="px-3 py-1 text-xs rounded-full bg-white/5 border border-white/10 text-green-400">
+            Perfil conservador
+          </span>
         </div>
-
-        {/* Proventos */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-          <p className="text-xs text-gray-400">Proventos</p>
-
-          <p className="text-xl font-bold text-white">
-            R${" "}
-            <CountUp end={51360} duration={2.5} separator="." />
-          </p>
-
-          <p className="text-blue-400 text-xs">12 meses</p>
-        </div>
-
-        {/* Carteira */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-          <p className="text-xs text-gray-400">Carteira</p>
-          <p className="text-xl font-bold text-white">FIIs + Ações</p>
-          <p className="text-gray-400 text-xs">Diversificado</p>
-        </div>
-
-      </div>
-
-      {/* CHART ANIMADO */}
-      <div className="mt-6 relative z-10">
-        <p className="text-xs text-gray-400 mb-3">
-          Evolução patrimonial
-        </p>
-
-        <div className="h-28 flex items-end gap-2">
-          {[30, 45, 40, 60, 55, 80, 75].map((h, i) => (
-            <motion.div
-              key={i}
-              initial={{ height: 0 }}
-              animate={{ height: `${h}%` }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.1,
-              }}
-              className="w-3 bg-gradient-to-t from-green-500 to-blue-500 rounded"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* STATUS */}
-      <div className="mt-6 flex items-center justify-between relative z-10">
-        <p className="text-xs text-gray-400">
-          Estratégia: longo prazo + reinvestimento
-        </p>
-
-        <motion.span
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="px-3 py-1 text-xs rounded-full bg-green-500/10 border border-green-500/30 text-green-400"
-        >
-          Crescimento estável
-        </motion.span>
       </div>
     </motion.div>
   );
