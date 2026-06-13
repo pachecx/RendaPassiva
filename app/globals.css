@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0f19;
+    --foreground: #ffffff;
+    --accent-green: #00c853;
+    --accent-blue: #00b0ff;
+    --text-secondary: #a0aec0;
+  }
+
+  * {
+    @apply antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    background-color: var(--background);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-gray-100 to-gray-400 bg-clip-text text-transparent;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-green-500 to-emerald-600;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-600;
+  }
+
+  .glow-effect {
+    @apply shadow-lg shadow-green-500/50;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .card-premium {
+    @apply relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-xl;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0b0f19;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00c853;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00a341;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 font-semibold text-white rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 font-semibold text-white rounded-lg bg-gradient-to-r from-blue-500 to-cyan-600 hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-lg max-w-2xl mx-auto;
+  }
 }

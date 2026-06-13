@@ -1,0 +1,12 @@
+export { Header } from "./Header";
+export { HeroSection } from "./HeroSection";
+export { ProblemsSection } from "./ProblemsSection";
+export { MethodSection } from "./MethodSection";
+export { ModulesSection } from "./ModulesSection";
+export { BonusSection } from "./BonusSection";
+export { TestimonialsSection } from "./TestimonialsSection";
+export { PricingSection } from "./PricingSection";
+export { FAQSection } from "./FAQSection";
+export { CTASection } from "./CTASection";
+export { Footer } from "./Footer";
+export { Button } from "./Button";
