@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Premium Fintech Landing Page
 
-## Getting Started
+A modern fintech-inspired landing page built for a financial education platform, focused on delivering a premium user experience, strong visual identity, and conversion-oriented structure.
 
-First, run the development server:
+## 🚀 Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project was designed to create a high-end digital presence inspired by modern financial platforms.
+
+The interface combines a dark premium aesthetic, glassmorphism elements, animated components, and a clean information hierarchy to communicate trust, innovation, and financial authority.
+
+## ✨ Features
+
+* Premium dark UI design
+* Responsive layout for desktop and mobile
+* Animated hero section
+* Interactive financial dashboard
+* Smooth scroll animations
+* Modern card-based components
+* FAQ accordion interactions
+* Testimonials carousel
+* Pricing section with conversion focus
+* Reusable React components
+
+## 🛠️ Technologies
+
+* React
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Lucide Icons
+
+## 🎨 Design Concept
+
+The visual direction was inspired by fintech products and modern financial platforms, focusing on:
+
+* Trust
+* Security
+* Growth
+* Technology
+* Premium user experience
+
+The goal was to create a digital experience that feels professional, modern, and aligned with the financial market.
+
+## 📂 Project Structure
+
+```
+src/
+ ├── components/
+ │    ├── Header
+ │    ├── HeroSection
+ │    ├── AnimatedDashboard
+ │    ├── ModulesSection
+ │    ├── PricingSection
+ │    ├── TestimonialsSection
+ │    └── Footer
+ │
+ ├── hooks/
+ ├── lib/
+ └── styles/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Live Preview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+https://renda-passiva-theta.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Purpose
 
-## Learn More
+This project demonstrates the development of a premium landing page combining modern frontend technologies, UI design principles, and interactive experiences.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with React, Next.js and modern frontend practices.
