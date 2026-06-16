@@ -1,27 +1,34 @@
-# Premium Fintech Landing Page
+# Landing Page Fintech Premium
 
-A modern fintech-inspired landing page built for a financial education platform, focused on delivering a premium user experience, strong visual identity, and conversion-oriented structure.
+Uma landing page moderna inspirada no universo fintech, desenvolvida para uma plataforma de educação financeira, com foco em experiência premium, identidade visual forte e estrutura orientada à conversão.
 
-## 🚀 Overview
+## 🚀 Sobre o Projeto
 
-This project was designed to create a high-end digital presence inspired by modern financial platforms.
+Este projeto foi desenvolvido com o objetivo de criar uma presença digital sofisticada para uma marca do segmento financeiro.
 
-The interface combines a dark premium aesthetic, glassmorphism elements, animated components, and a clean information hierarchy to communicate trust, innovation, and financial authority.
+A interface combina uma estética dark premium, elementos de glassmorphism, animações modernas e uma hierarquia visual estratégica para transmitir:
 
-## ✨ Features
+* confiança;
+* autoridade;
+* tecnologia;
+* crescimento financeiro;
+* percepção de alto valor.
 
-* Premium dark UI design
-* Responsive layout for desktop and mobile
-* Animated hero section
-* Interactive financial dashboard
-* Smooth scroll animations
-* Modern card-based components
-* FAQ accordion interactions
-* Testimonials carousel
-* Pricing section with conversion focus
-* Reusable React components
+## ✨ Funcionalidades
 
-## 🛠️ Technologies
+* Interface premium em modo dark
+* Layout totalmente responsivo
+* Hero section com animações
+* Dashboard financeiro interativo
+* Animações suaves com scroll
+* Componentes modernos em cards
+* Accordion de perguntas frequentes
+* Carrossel de depoimentos
+* Seção de oferta/pricing
+* Estrutura focada em conversão
+* Componentes reutilizáveis
+
+## 🛠️ Tecnologias Utilizadas
 
 * React
 * Next.js
@@ -30,21 +37,21 @@ The interface combines a dark premium aesthetic, glassmorphism elements, animate
 * Framer Motion
 * Lucide Icons
 
-## 🎨 Design Concept
+## 🎨 Conceito Visual
 
-The visual direction was inspired by fintech products and modern financial platforms, focusing on:
+A direção visual foi inspirada em produtos financeiros digitais modernos, seguindo uma abordagem premium com:
 
-* Trust
-* Security
-* Growth
-* Technology
-* Premium user experience
+* Tema escuro sofisticado
+* Gradientes modernos
+* Efeitos de profundidade
+* Elementos de dashboard financeiro
+* Experiência fluida e responsiva
 
-The goal was to create a digital experience that feels professional, modern, and aligned with the financial market.
+O objetivo foi criar uma experiência digital que transmitisse segurança, inovação e profissionalismo.
 
-## 📂 Project Structure
+## 📂 Estrutura do Projeto
 
-```
+```bash
 src/
  ├── components/
  │    ├── Header
@@ -60,14 +67,14 @@ src/
  └── styles/
 ```
 
-## 🌐 Live Preview
+## 🌐 Demonstração
 
 https://renda-passiva-theta.vercel.app/
 
-## 📌 Purpose
+## 📌 Objetivo do Projeto
 
-This project demonstrates the development of a premium landing page combining modern frontend technologies, UI design principles, and interactive experiences.
+Demonstrar a criação de uma experiência digital premium utilizando tecnologias modernas de frontend, combinando desenvolvimento, design de interface e animações para criar uma apresentação visual de alto impacto.
 
 ---
 
-Built with React, Next.js and modern frontend practices.
+Desenvolvido com React, Next.js e boas práticas modernas de desenvolvimento frontend.
